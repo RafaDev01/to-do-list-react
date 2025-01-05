@@ -14,6 +14,7 @@
 
 .todo-header h1 {
     margin: 0;
+    color: rgb(0, 153, 255);
 }
 
 .form-todo {
@@ -26,6 +27,7 @@
 .list-todo h2 {
     text-align: center;
     margin-top: 0;
+    font-size: 24px;
 }
 
 .form-control {
@@ -36,7 +38,7 @@
 
 .form-control label {
     font-weight: bold;
-    font-size: .7em;
+    font-size: 1.5em;
     margin-bottom: .4em;
 }
 
@@ -44,12 +46,13 @@
     border: 1px solid #222;
     border-radius: 2px;
     background-color: #2C3035;
-    padding: .5em;
+    padding: .7em;
     color: #dfdfdf;
+    font-size: 1em;
 }
 
 input[type="submit"] {
-    background-color: #333;
+    background-color: #333333c7;
     color: #eee;
     display: block;
     width: 100%;
@@ -57,11 +60,21 @@ input[type="submit"] {
     border-radius: 5px;
     cursor: pointer;
     padding: 1em;
+    font-size: 1em;
+}
+
+input[type="submit"]:hover {
+    background-color: #000000c4;
+    border: 1px solid #0099ff;
+    color: #ffffff;
+    transition: .6s;
+    box-sizing: border-box;
 }
 
 .list-todo {
     padding: 0 1em 2em;
     margin: 1em 2em;
+    font-size: 24px;
 }
 
 .list-todo h2 {
@@ -83,7 +96,7 @@ input[type="submit"] {
 
 .todo-done {
     text-decoration: line-through;
-    color: rgb(240, 98, 146);
+    color: rgb(0, 128, 255);
 }
 
 .todo p {
@@ -102,4 +115,8 @@ input[type="submit"] {
 
 .todo svg:hover {
     color: rgb(240, 98, 146);
+}
+
+.actions {
+    font-size: 26px;
 }

@@ -16,14 +16,16 @@ function App() {
     const loadData = async () => {
       setLoading(true)
 
-      const res = await fetch(API + "/todos").
-        then(res => res.json()).
-        then(data => data).
-        catch(err => console.error(err))
+      setInterval(async () => {
+        const res = await fetch(API + "/todos").
+          then(res => res.json()).
+          then(data => data).
+          catch(err => console.error(err))
 
-      setLoading(false)
+        setLoading(false)
 
-      setTodos(res)
+        setTodos(res)
+      }, 3000)
     }
 
     loadData()
@@ -80,13 +82,13 @@ function App() {
   }
 
   if (loading) {
-    return <p>Carregando...</p>
+    return <p style={{ color: "white" }}>Carregando...</p>
   }
 
   return (
     <div className='App'>
       <div className='todo-header'>
-        <h1>React Todo</h1>
+        <h1>React to-do list</h1>
       </div>
       <div className='form-todo'>
         <h2>Insira sua próxima tarefa:</h2>
@@ -122,14 +124,16 @@ function App() {
         {todos.map((todo) => (
           <div className='todo' key={todo.id}>
             <h3 className={todo.done ? "todo-done" : ""}>{todo.title}</h3>
-            <p>Duração: {todo.time}</p>
+            <p>Duração: {todo.time}h</p>
             <div className='actions'>
               <span onClick={() => handleEdit(todo)}>
                 {!todo.done ? <BsBookmarkCheck /> : <BsBookmarkCheckFill />}
               </span>
               <BsTrash onClick={() => handleDelete(todo.id)} />
             </div>
+            <hr />
           </div>
+
         ))}
       </div>
     </div >
